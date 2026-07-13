@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    background-color: #1b2e6b;
+    color: #f6f5f1;
+  }
+}
+
+@layer components {
+  .input {
+    @apply w-full rounded-md border border-charcoal/15 bg-white px-3 py-2 text-sm text-charcoal placeholder:text-charcoal/40 focus:border-cobalt focus:outline-none focus:ring-1 focus:ring-cobalt;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(15, 14, 12, 0.2);
+    border-radius: 999px;
+  }
+}
