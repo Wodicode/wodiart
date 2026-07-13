@@ -3,13 +3,13 @@ export function ProgressBar({ posted, total }: { posted: number; total: number }
 
   return (
     <div>
-      <div className="mb-1.5 flex items-baseline justify-between text-xs uppercase tracking-wider text-charcoal/60">
+      <div className="mb-1.5 flex items-baseline justify-between text-xs uppercase tracking-[0.15em] text-offwhite/50">
         <span>Posted progress</span>
-        <span className="font-semibold text-green">
-          {pct}% <span className="text-charcoal/40">({posted}/{total})</span>
+        <span className="font-semibold text-greenLight">
+          {pct}% <span className="text-offwhite/35">({posted}/{total})</span>
         </span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-charcoal/10">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-offwhite/10">
         <div
           className="h-full rounded-full bg-green transition-all duration-500 ease-out"
           style={{ width: `${pct}%` }}

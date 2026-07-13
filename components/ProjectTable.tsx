@@ -15,15 +15,15 @@ export function ProjectTable({ projects, onUpdate, onDelete }: ProjectTableProps
 
   if (projects.length === 0) {
     return (
-      <div className="rounded-lg border border-dashed border-charcoal/20 px-6 py-16 text-center text-sm text-charcoal/50">
+      <div className="rounded-lg border border-dashed border-offwhite/20 px-6 py-16 text-center text-sm text-offwhite/50">
         No projects match your filters.
       </div>
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-charcoal/10 bg-offwhite">
-      <div className="hidden grid-cols-[2fr_1.2fr_auto_auto_auto_auto] gap-3 border-b border-charcoal/10 bg-charcoal/[0.03] px-4 py-2.5 text-xs font-medium uppercase tracking-wider text-charcoal/40 sm:grid">
+    <div className="overflow-hidden rounded-lg border border-offwhite/10 bg-surface">
+      <div className="hidden grid-cols-[2fr_1.2fr_auto_auto_auto_auto] gap-3 border-b border-offwhite/10 bg-offwhite/[0.03] px-4 py-2.5 text-xs font-medium uppercase tracking-[0.15em] text-offwhite/40 sm:grid">
         <span>Project</span>
         <span>Sector</span>
         <span>Status</span>

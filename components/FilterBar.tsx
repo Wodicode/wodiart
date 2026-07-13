@@ -40,7 +40,7 @@ export function FilterBar({
           placeholder="Search by name or sector..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full rounded-md border border-charcoal/15 bg-white px-3 py-2 text-sm text-charcoal placeholder:text-charcoal/40 focus:border-cobalt focus:outline-none focus:ring-1 focus:ring-cobalt sm:w-64"
+          className="input sm:w-64"
         />
         <button
           type="button"
@@ -68,7 +68,7 @@ function FilterPill({
       type="button"
       onClick={onClick}
       className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
-        active ? "bg-charcoal text-offwhite" : "bg-charcoal/5 text-charcoal/70 hover:bg-charcoal/10"
+        active ? "bg-offwhite text-charcoal" : "bg-offwhite/8 text-offwhite/60 hover:bg-offwhite/15"
       }`}
     >
       {children}

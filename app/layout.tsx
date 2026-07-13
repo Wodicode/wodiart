@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={sora.variable}>
-      <body className="font-sora bg-offwhite text-charcoal antialiased">
+      <body className="font-sora bg-charcoal text-offwhite antialiased">
         {children}
       </body>
     </html>

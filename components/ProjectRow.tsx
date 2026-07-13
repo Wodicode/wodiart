@@ -72,24 +72,24 @@ export function ProjectRow({ project, expanded, onToggle, onUpdate, onDelete }: 
   }
 
   return (
-    <div className="border-b border-charcoal/10 last:border-b-0">
+    <div className="border-b border-offwhite/10 last:border-b-0">
       <button
         type="button"
         onClick={onToggle}
-        className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-charcoal/[0.03] sm:grid-cols-[2fr_1.2fr_auto_auto_auto_auto]"
+        className="grid w-full grid-cols-[1fr_auto] items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-offwhite/[0.04] sm:grid-cols-[2fr_1.2fr_auto_auto_auto_auto]"
       >
         <div className="min-w-0">
-          <div className="truncate font-medium text-charcoal">{project.name}</div>
-          <div className="truncate text-xs text-charcoal/50 sm:hidden">{project.sector}</div>
+          <div className="truncate font-medium text-offwhite">{project.name}</div>
+          <div className="truncate text-xs text-offwhite/50 sm:hidden">{project.sector}</div>
         </div>
-        <div className="hidden truncate text-sm text-charcoal/60 sm:block">{project.sector}</div>
+        <div className="hidden truncate text-sm text-offwhite/60 sm:block">{project.sector}</div>
         <div className="hidden sm:block">
           <StatusBadge status={project.status} />
         </div>
-        <div className="hidden text-xs text-charcoal/50 sm:block">
+        <div className="hidden text-xs text-offwhite/50 sm:block">
           Sched. {formatDate(project.scheduled_date)}
         </div>
-        <div className="hidden text-xs text-charcoal/50 sm:block">
+        <div className="hidden text-xs text-offwhite/50 sm:block">
           Posted {formatDate(project.posted_date)}
         </div>
         <div className="flex items-center gap-2 justify-self-end">
@@ -97,7 +97,7 @@ export function ProjectRow({ project, expanded, onToggle, onUpdate, onDelete }: 
             <StatusBadge status={project.status} />
           </span>
           <svg
-            className={`h-4 w-4 shrink-0 text-charcoal/40 transition-transform ${expanded ? "rotate-180" : ""}`}
+            className={`h-4 w-4 shrink-0 text-offwhite/40 transition-transform ${expanded ? "rotate-180" : ""}`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -108,7 +108,7 @@ export function ProjectRow({ project, expanded, onToggle, onUpdate, onDelete }: 
       </button>
 
       {expanded && (
-        <div className="space-y-4 border-t border-charcoal/10 bg-charcoal/[0.02] px-4 py-5">
+        <div className="space-y-4 border-t border-offwhite/10 bg-offwhite/[0.03] px-4 py-5">
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Project name">
               <input
@@ -180,7 +180,7 @@ export function ProjectRow({ project, expanded, onToggle, onUpdate, onDelete }: 
               <button
                 type="button"
                 onClick={handleSeedCaption}
-                className="text-xs font-medium text-cobalt hover:underline"
+                className="text-xs font-medium text-cobaltLight hover:underline"
               >
                 Seed caption
               </button>
@@ -215,14 +215,14 @@ export function ProjectRow({ project, expanded, onToggle, onUpdate, onDelete }: 
               >
                 Mark as posted
               </button>
-              <span className="text-xs text-charcoal/40">
+              <span className="text-xs text-offwhite/40">
                 {saving ? "Saving..." : savedFlash ? "Saved" : ""}
               </span>
             </div>
             <button
               type="button"
               onClick={handleDelete}
-              className="text-xs font-medium text-charcoal/40 hover:text-red-600"
+              className="text-xs font-medium text-offwhite/40 hover:text-red-400"
             >
               Delete project
             </button>
@@ -245,7 +245,7 @@ function Field({
   return (
     <label className="block">
       <span className="mb-1.5 flex items-center justify-between">
-        <span className="text-xs font-medium uppercase tracking-wider text-charcoal/50">{label}</span>
+        <span className="text-xs font-medium uppercase tracking-[0.15em] text-offwhite/50">{label}</span>
         {action}
       </span>
       {children}

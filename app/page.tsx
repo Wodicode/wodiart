@@ -6,6 +6,7 @@ import { FilterBar } from "@/components/FilterBar";
 import { ProgressBar } from "@/components/ProgressBar";
 import { ProjectTable } from "@/components/ProjectTable";
 import { StatsHeader } from "@/components/StatsHeader";
+import { WodiartMark } from "@/components/WodiartMark";
 import { useProjects } from "@/lib/useProjects";
 import type { ProjectStatus } from "@/lib/types";
 
@@ -31,16 +32,17 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
-      <header className="mb-8">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-cobalt">Wodiart</p>
-        <h1 className="mt-1 text-3xl font-semibold text-charcoal sm:text-4xl">Content Tracker</h1>
-        <p className="mt-1.5 text-sm text-charcoal/60">
+      <header className="mb-10">
+        <WodiartMark />
+        <h1 className="mt-4 text-4xl font-bold text-offwhite sm:text-5xl">Content Tracker</h1>
+        <p className="mt-2 text-sm text-offwhite/55">
           Instagram content status across all client projects.
         </p>
+        <div className="mt-6 h-px w-full bg-offwhite/10" />
       </header>
 
       {error && (
-        <div className="mb-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="mb-6 rounded-md border border-red-500/25 bg-red-950/40 px-4 py-3 text-sm text-red-300">
           {error}
         </div>
       )}
@@ -61,7 +63,7 @@ export default function Home() {
       </div>
 
       {loading ? (
-        <div className="rounded-lg border border-charcoal/10 px-6 py-16 text-center text-sm text-charcoal/50">
+        <div className="rounded-lg border border-offwhite/10 px-6 py-16 text-center text-sm text-offwhite/50">
           Loading projects...
         </div>
       ) : (
