@@ -1,15 +1,22 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { supabase } from "./supabaseClient";
+import { isSupabaseConfigured, supabase } from "./supabaseClient";
 import type { NewProject, Project } from "./types";
+
+const NOT_CONFIGURED_MESSAGE =
+  "Supabase isn't configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY (see README).";
 
 export function useProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(isSupabaseConfigured);
+  const [error, setError] = useState<string | null>(
+    isSupabaseConfigured ? null : NOT_CONFIGURED_MESSAGE
+  );
 
   useEffect(() => {
+    if (!isSupabaseConfigured) return;
+
     let active = true;
 
     async function load() {
@@ -70,6 +77,7 @@ export function useProjects() {
   }, []);
 
   const addProject = useCallback(async (project: NewProject) => {
+    if (!isSupabaseConfigured) throw new Error(NOT_CONFIGURED_MESSAGE);
     const { data, error } = await supabase
       .from("projects")
       .insert({
@@ -92,6 +100,7 @@ export function useProjects() {
   }, []);
 
   const updateProject = useCallback(async (id: string, patch: Partial<Project>) => {
+    if (!isSupabaseConfigured) throw new Error(NOT_CONFIGURED_MESSAGE);
     const { data, error } = await supabase
       .from("projects")
       .update(patch)
@@ -107,6 +116,7 @@ export function useProjects() {
   }, []);
 
   const deleteProject = useCallback(async (id: string) => {
+    if (!isSupabaseConfigured) throw new Error(NOT_CONFIGURED_MESSAGE);
     const { error } = await supabase.from("projects").delete().eq("id", id);
     if (error) throw new Error(error.message);
     setProjects((current) => current.filter((p) => p.id !== id));
