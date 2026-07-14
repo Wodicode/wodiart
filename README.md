@@ -49,12 +49,17 @@ alternative: create a form there, then replace the `fetch("/api/intake", ...)` c
 (`https://formspree.io/f/your-form-id`), and delete `app/api/intake/route.ts`. Everything
 else — validation, the character counter, the confirmation state — stays the same.
 
-## 3. Add your logo
+## 3. Logo
 
-`components/WodiartMark.tsx` currently renders a placeholder mark. Replace the inline
-SVG with your real logo — either paste your logo's SVG markup directly into that
-component, or drop a file into `public/` (e.g. `public/wodiart-mark.svg`) and swap the
-`<svg>` for an `<Image src="/wodiart-mark.svg" ... />`.
+The real Wodiart mark lives in `public/logo/`:
+
+- `wodiart-mark-white.png` / `wodiart-mark-black.png` — mark only, no wordmark
+- `wodiart-logo-white.png` / `wodiart-logo-black.png` — full lockup (mark + wordmark)
+
+`components/WodiartMark.tsx` renders the white mark-only PNG next to a coded
+"WODIART" wordmark (so the wordmark stays crisp and matches the site's type
+elsewhere), since the whole site sits on the dark `ink` background. If you ever add a
+light-background section, swap in the black variant there.
 
 ## 4. Fill in real contact details
 
@@ -121,7 +126,8 @@ components/
   IntakeForm.tsx        The intake form and its validation/submit logic
   DirectContact.tsx     Email / phone / WhatsApp links
   Footer.tsx            Mark, tagline, Instagram link
-  WodiartMark.tsx        Logo placeholder — swap for the real mark
+  WodiartMark.tsx        Renders the logo mark + coded wordmark
 lib/
   constants.ts          Contact details + form option lists (single source of truth)
+public/logo/            Logo PNGs (mark-only and full lockup, black and white)
 ```
