@@ -1,9 +1,9 @@
 export const CONTACT = {
-  email: "hello@wodiart.com",
-  phoneDisplay: "+234 000 000 0000",
-  phoneHref: "+2340000000000",
-  whatsappDisplay: "+234 000 000 0000",
-  whatsappNumber: "2340000000000",
+  email: "wodiart@gmail.com",
+  phoneDisplay: "+234 802 143 3171",
+  phoneHref: "+2348021433171",
+  whatsappDisplay: "+234 802 143 3171",
+  whatsappNumber: "2348021433171",
   instagramHandle: "@wodiart",
   instagramUrl: "https://instagram.com/wodiart",
 };
