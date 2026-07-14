@@ -8,18 +8,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        offwhite: "#F6F5F1",
-        charcoal: "#0F0E0C",
-        surface: "#1C1B18",
-        surface2: "#242219",
-        cobalt: "#1B2E6B",
-        cobaltLight: "#5C7CFA",
-        amber: "#B45309",
-        green: "#1A6B3C",
-        greenLight: "#34B369",
+        ink: "#0A0A0A",
+        paper: "#F5F3EE",
+        gray: {
+          950: "#111111",
+          900: "#181818",
+          800: "#262626",
+          700: "#3A3A3A",
+          600: "#525252",
+          500: "#6B6B6B",
+          400: "#8A8A8A",
+          300: "#ADADAD",
+          200: "#CFCFCC",
+          100: "#E4E2DC",
+        },
       },
       fontFamily: {
-        sora: ["var(--font-sora)", "sans-serif"],
+        display: ["\"Helvetica Neue\"", "Helvetica", "Arial", "sans-serif"],
+        body: ["\"Helvetica Neue\"", "Helvetica", "Arial", "sans-serif"],
+      },
+      letterSpacing: {
+        tightest: "-0.04em",
+      },
+      maxWidth: {
+        content: "1120px",
       },
     },
   },

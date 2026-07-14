@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
 import "./globals.css";
 
-const sora = Sora({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sora",
-});
-
 export const metadata: Metadata = {
-  title: "Wodiart — Content Tracker",
-  description: "Instagram content tracker for Wodiart client projects.",
+  title: "Wodiart — Start a Project",
+  description:
+    "Wodiart is a brand identity studio based in Abuja, Nigeria. Tell us about your project and we'll reply within 48 hours.",
+  metadataBase: new URL("https://wodiart.com"),
+  openGraph: {
+    title: "Wodiart — Start a Project",
+    description:
+      "Brand identity studio, Abuja. 200+ brands worldwide. Tell us about your project.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -19,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={sora.variable}>
-      <body className="font-sora bg-charcoal text-offwhite antialiased">
+    <html lang="en">
+      <body className="bg-ink font-body text-paper antialiased">
         {children}
       </body>
     </html>
