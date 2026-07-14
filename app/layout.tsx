@@ -1,20 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Manrope } from "next/font/google";
 import "./globals.css";
-
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Wodiart — Start a Project",
@@ -35,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${syne.variable} ${manrope.variable}`}>
+    <html lang="en">
       <body className="bg-ink font-body text-paper antialiased">
         {children}
       </body>

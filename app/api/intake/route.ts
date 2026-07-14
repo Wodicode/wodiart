@@ -10,6 +10,7 @@ type IntakePayload = {
   phone: string;
   stage: string;
   needs: string[];
+  needsOther: string;
   details: string;
   budget: string;
   timeline: string;
@@ -31,6 +32,8 @@ function isValidPayload(body: unknown): body is IntakePayload {
     b.stage.trim().length > 0 &&
     Array.isArray(b.needs) &&
     b.needs.length > 0 &&
+    (!b.needs.includes("Other") ||
+      (typeof b.needsOther === "string" && b.needsOther.trim().length > 0)) &&
     typeof b.details === "string" &&
     b.details.trim().length >= 50 &&
     typeof b.budget === "string" &&
@@ -71,13 +74,17 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
+  const needsSummary = body.needs
+    .map((need) => (need === "Other" && body.needsOther ? `Other (${body.needsOther})` : need))
+    .join(", ");
+
   const rows: [string, string][] = [
     ["Name", body.name],
     ["Business / brand", body.brand],
     ["Email", body.email],
     ["Phone / WhatsApp", body.phone],
     ["Business stage", body.stage],
-    ["What they need", body.needs.join(", ")],
+    ["What they need", needsSummary],
     ["Budget", body.budget],
     ["Timeline", body.timeline],
   ];

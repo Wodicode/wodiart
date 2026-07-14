@@ -16,14 +16,15 @@ export const BUSINESS_STAGES = [
 ] as const;
 
 export const PROJECT_NEEDS = [
-  "Logo & identity",
-  "Full brand system",
-  "Brand guidelines",
-  "Website",
-  "Social media kit",
-  "Event/milestone branding",
-  "Not sure yet",
+  "Full Brand Identity",
+  "Corporate Identity",
+  "Visual Comms",
+  "Website Design",
+  "Other",
+  "Not Sure Yet",
 ] as const;
+
+export const OTHER_NEED = "Other";
 
 export const BUDGET_RANGES = [
   "Under ₦500k",

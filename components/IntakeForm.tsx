@@ -5,6 +5,7 @@ import {
   BUDGET_RANGES,
   BUSINESS_STAGES,
   MIN_DETAILS_LENGTH,
+  OTHER_NEED,
   PROJECT_NEEDS,
   TIMELINES,
 } from "@/lib/constants";
@@ -21,6 +22,7 @@ export function IntakeForm() {
   const [phone, setPhone] = useState("");
   const [stage, setStage] = useState("");
   const [needs, setNeeds] = useState<string[]>([]);
+  const [needsOther, setNeedsOther] = useState("");
   const [details, setDetails] = useState("");
   const [budgetChoice, setBudgetChoice] = useState<BudgetChoice>("unsure");
   const [budgetRange, setBudgetRange] = useState("");
@@ -30,6 +32,7 @@ export function IntakeForm() {
 
   const detailsLength = details.trim().length;
   const detailsMet = detailsLength >= MIN_DETAILS_LENGTH;
+  const needsOtherSelected = needs.includes(OTHER_NEED);
 
   const isValid = useMemo(() => {
     return (
@@ -39,11 +42,25 @@ export function IntakeForm() {
       phone.trim().length > 0 &&
       stage.length > 0 &&
       needs.length > 0 &&
+      (!needsOtherSelected || needsOther.trim().length > 0) &&
       detailsMet &&
       timeline.length > 0 &&
       (budgetChoice === "unsure" || budgetRange.length > 0)
     );
-  }, [name, brand, email, phone, stage, needs, detailsMet, timeline, budgetChoice, budgetRange]);
+  }, [
+    name,
+    brand,
+    email,
+    phone,
+    stage,
+    needs,
+    needsOtherSelected,
+    needsOther,
+    detailsMet,
+    timeline,
+    budgetChoice,
+    budgetRange,
+  ]);
 
   function toggleNeed(value: string) {
     setNeeds((prev) =>
@@ -69,6 +86,7 @@ export function IntakeForm() {
           phone,
           stage,
           needs,
+          needsOther: needsOtherSelected ? needsOther.trim() : "",
           details,
           budget: budgetChoice === "unsure" ? "Help me understand what this costs" : budgetRange,
           timeline,
@@ -239,6 +257,24 @@ export function IntakeForm() {
                 </label>
               ))}
             </div>
+
+            {needsOtherSelected && (
+              <div className="mt-4">
+                <label htmlFor="needsOther" className="sr-only">
+                  Tell us what you need
+                </label>
+                <input
+                  id="needsOther"
+                  name="needsOther"
+                  type="text"
+                  required
+                  value={needsOther}
+                  onChange={(e) => setNeedsOther(e.target.value)}
+                  placeholder="Tell us what you need"
+                  className="field-input"
+                />
+              </div>
+            )}
           </fieldset>
 
           <div>

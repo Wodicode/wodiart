@@ -24,8 +24,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
-        body: ["var(--font-body)", "sans-serif"],
+        display: ["\"Helvetica Neue\"", "Helvetica", "Arial", "sans-serif"],
+        body: ["\"Helvetica Neue\"", "Helvetica", "Arial", "sans-serif"],
       },
       letterSpacing: {
         tightest: "-0.04em",
